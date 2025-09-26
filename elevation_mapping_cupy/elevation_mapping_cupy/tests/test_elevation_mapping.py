@@ -83,9 +83,9 @@ class TestElevationMap:
         for layer in layers:
             elmap_ex.get_map_with_name_ref(layer, data)
 
-    def test_get_position(self, elmap_ex):
+    def test_get_center_position(self, elmap_ex):
         pos = np.random.rand(1, 3)
-        elmap_ex.get_position(pos)
+        elmap_ex.get_center_position(pos)
 
     def test_clear(self, elmap_ex):
         elmap_ex.clear()
