@@ -301,8 +301,7 @@ class ElevationMappingNode(Node):
         for layer in self.my_publishers[key].get("layers", []):
             gm.layers.append(layer)
             self._map.get_map_with_name_ref(layer, self._map_data)
-            # After fixing CUDA kernels and removing flips in elevation_mapping.py, no flip needed here
-            map_data_for_gridmap = self._map_data
+            map_data_for_gridmap = np.flip(self._map_data, axis=1)
             arr = Float32MultiArray()
             arr.layout = MAL()
             # Keep original dimension order but fix strides
